@@ -1,0 +1,81 @@
+<testsuites>
+  <testsuite tests="16" failures="3">
+    <testcase classname="checklist.goods.spirits.SpiritsAddingByEnteringBarcode" name="Добавление товара в чек путем ввода ШК вручную. Алкогольный товар"/>
+    <testcase classname="checklist.goods.spirits.SpiritsChangingPositionQuantity" name="Изменение количества позиции в чеке. Алкогольный товар"/>
+    <testcase classname="checklist.goods.spirits.SpiritsAddingByEnteringCode" name="Добавление товара в чек путем ввода кода товара вручную. Алкогольный товар"/>
+    <testcase classname="checklist.goods.spirits.SpiritsAddingByScanningBarcode" name="Добавление товара в чек путем сканирования ШК. Алкогольный товар"/>
+    <testcase classname="checklist.goods.spirits.SpiritsAddingByScanningCode" name="Добавление товара в чек путем сканирования кода товара. Алкогольный товар"/>
+    <testcase classname="checklist.goods.spirits.SpiritsConfirmAge" name="Подтверждение возраста покупателя. Алкогольный товар">
+      <error>1. Ошибка выполнения подитогаru.crystals.setrobot.toolkits.exceptions.ScreenNotDisplayedException: Ошибка выполнения подитога
+	at ru.crystals.setrobot.toolkits.ChequeOperationToolkit.subTotal(ChequeOperationToolkit.java:139)
+	at ru.crystals.setrobot.toolkits.ChequeOperationToolkit.subTotal(ChequeOperationToolkit.java:87)
+	at ru.crystals.setrobot.tests.checklist.goods.AbstractConfirmAge.testSteps(AbstractConfirmAge.java:52)
+	at ru.crystals.setrobot.testfoundation.TestScenario.run(TestScenario.java:212)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: ru.crystals.setrobot.toolkits.exceptions.ScreenNotDisplayedException: Экран CASHIER_MODE_SUBTOTAL_CASH (Режим кассира, подитог нал) так и не появился через 10.0+ сек
+	at ru.crystals.setrobot.toolkits.ScreenToolkit.waitFor(ScreenToolkit.java:618)
+	at ru.crystals.setrobot.toolkits.ScreenToolkit.waitFor(ScreenToolkit.java:600)
+	at ru.crystals.setrobot.toolkits.ChequeOperationToolkit.subTotal(ChequeOperationToolkit.java:136)
+	... 8 more
+Caused by: ru.crystals.setrobot.toolkits.exceptions.ScreenNotDisplayedException: CASHIER_MODE_SUBTOTAL_CASH (Режим кассира, подитог нал) не отображается Отсутствующие элементы: [ScreenItem [ClassType=javax.swing.JLabel, text=доплатить, tm=EQUALS_IGNORE_WS], ScreenItem [ClassType=javax.swing.JLabel, text=внесено, tm=EQUALS_IGNORE_WS], ScreenItem [ClassType=javax.swing.JLabel, text=Оплата наличными, tm=STARTS_WITH]]
+	at ru.crystals.setrobot.toolkits.ScreenToolkit.verifyScreen(ScreenToolkit.java:473)
+	at ru.crystals.setrobot.toolkits.ScreenToolkit.waitFor(ScreenToolkit.java:614)
+	... 10 more
+</error>
+    </testcase>
+    <testcase classname="checklist.goods.spirits.SpiritsAddingForDefaultQuantity" name="Добавление товара в чек в количестве по умолчанию. Алкогольный товар"/>
+    <testcase classname="checklist.goods.spirits.SpiritsAddingForSpecifiedQuantity" name="Добавление товара в чек с заданным количестве. Алкогольный товар"/>
+    <testcase classname="checklist.goods.spirits.SpiritsConfirmAgeAfterSubTotal" name="Подтверждение возраста покупателя после подитога. Алкогольный товар">
+      <error>1. Экран CASHIER_MODE_GOODS_CONFIRM_AGE (Режим кассира, подтверждение возраста покупателя) так и не появился через 5.0+ секru.crystals.setrobot.toolkits.exceptions.ScreenNotDisplayedException: Экран CASHIER_MODE_GOODS_CONFIRM_AGE (Режим кассира, подтверждение возраста покупателя) так и не появился через 5.0+ сек
+	at ru.crystals.setrobot.toolkits.ScreenToolkit.waitFor(ScreenToolkit.java:618)
+	at ru.crystals.setrobot.toolkits.ScreenToolkit.waitFor(ScreenToolkit.java:600)
+	at ru.crystals.setrobot.toolkits.ScreenToolkit.waitFor(ScreenToolkit.java:587)
+	at ru.crystals.setrobot.tests.checklist.goods.AbstractConfirmAgeAfterSubTotal.pressSubTotalAndConfirm(AbstractConfirmAgeAfterSubTotal.java:69)
+	at ru.crystals.setrobot.tests.checklist.goods.AbstractConfirmAgeAfterSubTotal.testSteps(AbstractConfirmAgeAfterSubTotal.java:42)
+	at ru.crystals.setrobot.testfoundation.TestScenario.run(TestScenario.java:212)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: ru.crystals.setrobot.toolkits.exceptions.ScreenNotDisplayedException: CASHIER_MODE_GOODS_CONFIRM_AGE (Режим кассира, подтверждение возраста покупателя) не отображается Отсутствующие элементы: [ScreenItem [ClassType=ru.crystals.pos.visualization.products.forms.CheckAgePanel, tm=EQUALS_IGNORE_WS], ScreenItem [ClassType=ru.crystals.pos.visualizationtouch.components.buttons.ButtonSimple, text=Отмена, tm=EQUALS_IGNORE_WS], ScreenItem [ClassType=ru.crystals.pos.visualizationtouch.components.buttons.ButtonSimple, text=Подтвердить, tm=EQUALS_IGNORE_WS]]
+	at ru.crystals.setrobot.toolkits.ScreenToolkit.verifyScreen(ScreenToolkit.java:473)
+	at ru.crystals.setrobot.toolkits.ScreenToolkit.waitFor(ScreenToolkit.java:614)
+	... 10 more
+</error>
+    </testcase>
+    <testcase classname="checklist.goods.spirits.SpiritsDeletePositionFromReceipt" name="Удаление позиции из чека. Алкогольный товар"/>
+    <testcase classname="checklist.goods.spirits.SpiritsAddingFromCashCatalog" name="Добавление товара из графического каталога кассы. Алкогольный товар"/>
+    <testcase classname="checklist.goods.spirits.SpiritsCancelReceiptOnAddingPositions" name="Аннулирование чека на этапе добавления позиций. Алкогольный товар"/>
+    <testcase classname="checklist.goods.spirits.SpiritsFastDeletePosition" name="Быстрое удаление товаров из чека. Алкогольный товар"/>
+    <testcase classname="checklist.goods.spirits.SpiritsFastEditPositionQuantity" name="Быстрое редактирование чека. Алкогольный товар"/>
+    <testcase classname="checklist.goods.spirits.SpiritsNotAllowedByAlcoholRestrictions" name="Алкогольные ограничения">
+      <error>1. Экраны [CASHIER_MODE_SPIRIT_DENIED (Режим кассира, продажа алкоголя запрещена), CASHIER_MODE_SPIRIT_DENIED_FOR_LENTA (Режим кассира, продажа алкоголя запрещена)] так и не появились через 5.0+ секru.crystals.setrobot.toolkits.exceptions.ScreenNotDisplayedException: Экраны [CASHIER_MODE_SPIRIT_DENIED (Режим кассира, продажа алкоголя запрещена), CASHIER_MODE_SPIRIT_DENIED_FOR_LENTA (Режим кассира, продажа алкоголя запрещена)] так и не появились через 5.0+ сек
+	at ru.crystals.setrobot.toolkits.ScreenToolkit.waitFor(ScreenToolkit.java:657)
+	at ru.crystals.setrobot.toolkits.ScreenToolkit.waitFor(ScreenToolkit.java:642)
+	at ru.crystals.setrobot.toolkits.ScreenToolkit.waitFor(ScreenToolkit.java:595)
+	at ru.crystals.setrobot.toolkits.ScreenToolkit.waitFor(ScreenToolkit.java:591)
+	at ru.crystals.setrobot.tests.checklist.goods.spirits.SpiritsNotAllowedByAlcoholRestrictions.testSteps(SpiritsNotAllowedByAlcoholRestrictions.java:55)
+	at ru.crystals.setrobot.testfoundation.TestScenario.run(TestScenario.java:212)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: ru.crystals.setrobot.toolkits.exceptions.ScreenNotDisplayedException: Ни один из экранов [CASHIER_MODE_SPIRIT_DENIED (Режим кассира, продажа алкоголя запрещена), CASHIER_MODE_SPIRIT_DENIED_FOR_LENTA (Режим кассира, продажа алкоголя запрещена)] не отображен
+	at ru.crystals.setrobot.toolkits.ScreenToolkit.verifyScreenIsDisplayed(ScreenToolkit.java:562)
+	at ru.crystals.setrobot.toolkits.ScreenToolkit.waitFor(ScreenToolkit.java:652)
+	... 10 more
+Caused by: ru.crystals.setrobot.toolkits.exceptions.ScreenNotDisplayedException: CASHIER_MODE_SPIRIT_DENIED (Режим кассира, продажа алкоголя запрещена) не отображается Отсутствующие элементы: [ScreenItem [ClassType=javax.swing.JLabel, text=Продажа алкоголя запрещена, tm=CONTAINS_IGNORE_TAGS]]
+	at ru.crystals.setrobot.toolkits.ScreenToolkit.verifyScreen(ScreenToolkit.java:473)
+	at ru.crystals.setrobot.toolkits.ScreenToolkit.verifyScreenIsDisplayed(ScreenToolkit.java:552)
+	... 11 more
+</error>
+    </testcase>
+    <testcase classname="checklist.goods.spirits.SpiritsNotExistedGoods" name="Попытка добавления товара, отсутствующего в БД. Алкогольный товар"/>
+  </testsuite>
+</testsuites>
